@@ -1,0 +1,19 @@
+Here I am building a list item in memory,
+An anchor child is created, and attributes (href, searchTerm and innerHTML)
+are added to it, and then it is appended as a child to the li tag.
+Finally the build up list item is appended to the dom.
+
+Question; is there a more efficient pure JS way to do this?
+Is there some idom that is common?
+
+Thanks,  ddk
+
+function addTopicLi( pTopic ) {
+    var li = document.createElement("li");
+    var a = document.createElement("a");
+    a.href="#";
+    a.dataset.searchTerm = pTopic;
+    a.innerHTML = pTopic;
+    li.appendChild( a );
+    ptrSideBarNav.appendChild( li );
+}
