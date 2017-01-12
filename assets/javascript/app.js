@@ -1,10 +1,10 @@
 var topics = [  'Great Pyramid of Giza',
-				'Hanging Gardens of Babylon',
-				'Statue of Zeus at Olympia',
-				'Temple of Artemis at Ephesus',
-				'Mausoleum at Halicarnassus',
-				'Colossus of Rhodes',
-				'Lighthouse of Alexandria' ];
+			        	'Hanging Gardens of Babylon',
+			        	'Statue of Zeus at Olympia',
+			        	'Temple of Artemis at Ephesus',
+			        	'Mausoleum at Halicarnassus',
+			        	'Colossus of Rhodes',
+			        	'Lighthouse of Alexandria' ];
 const apiKey = "dc6zaTOxFJmzC";
 const url = "http://api.giphy.com/v1/gifs/search"
 
