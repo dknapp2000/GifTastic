@@ -6,7 +6,7 @@ var topics = [  'Great Pyramid of Giza',
 			        	'Colossus of Rhodes',
 			        	'Lighthouse of Alexandria' ];
 const apiKey = "dc6zaTOxFJmzC";
-const url = "http://api.giphy.com/v1/gifs/search"
+const url = "https://api.giphy.com/v1/gifs/search"
 
 var ptrSideBarNav;
 var ptrTextInput;
