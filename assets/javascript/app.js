@@ -22,12 +22,19 @@ window.onload = function() {
     ptrGiffZone = document.querySelector("#giffs-here");
 
     ptrAddButton.addEventListener( "click", addTopic );
+
+	$(document).on("keypress","#textinput.form-control.input-md", function(e) {
+		var key = e.charCode || e.which;
+		if (key!==13) return;
+		addTopic(e);
+	});
+
     setup();
 }
 
 function addTopic(e) {
-		var text = ptrTextInput.value;
-		ptrTextInput.value = "";
+	var text = ptrTextInput.value;
+	ptrTextInput.value = "";
     addTopicLi( text );
     activateLinks();
 }
@@ -64,12 +71,10 @@ function showGiffies(e) {
     parameters += "&rating=g";
     parameters += "&api_key=dc6zaTOxFJmzC"
     queryURL += parameters;
-    console.log( queryURL );
     getGiffs( queryURL );
 }
 
 function getGiffs( pURL ) {
-    console.log( "GetGiffs: ", pURL );
     $.ajax( { 'url': pURL } )
     .done( function( response, status ) {
         // console.log( status );
@@ -84,13 +89,23 @@ function getGiffs( pURL ) {
 
 function displayGiffs( pData ) {
     for ( var i = 0 ; i < pData.length - 1; i++ ) {
+		var giffHeight = pData[i].images.fixed_height_still.height;
+		var giffWidth = pData[i].images.fixed_height_still.width;
+		var span = document.createElement("span");
+		span.id=pData[i].id;
+		span.classList="giff-container";
         var img = document.createElement("img");
         img.src = pData[i].images.fixed_height_still.url;
         img.classList = "giff";
         img.dataset.state="still";
         img.dataset.animated = pData[i].images.fixed_height.url;
         img.dataset.still = pData[i].images.fixed_height_still.url;
-        ptrGiffZone.appendChild( img );
+		span.appendChild( img );
+		var p = document.createElement("span");
+		p.classList="rating";
+		p.innerHTML = pData[i].rating.toUpperCase();
+		span.appendChild( p );
+        ptrGiffZone.appendChild( span );
     }
     activateGiffs();
 }
@@ -101,7 +116,6 @@ function activateGiffs() {
 }
 
 function switchState(e) {
-    console.log( this );
     var state = this.dataset.state;
     var still = this.dataset.still;
     var active = this.dataset.animated;

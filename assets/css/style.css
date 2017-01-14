@@ -6,3 +6,27 @@
     border: 1px solid black;
     min-height: 50px;
 }
+
+.giff-container {
+	position: relative;;
+}
+
+.giff-container p {
+	display:inline-block;
+	position: relative;
+	box-shadow:10px 10px black; }
+
+.giff {
+	margin: 0px 5px 5px 0px;
+	border: 1px solid rgb(217, 219, 240);
+}
+.rating {
+	background-color: black;
+	color: white;
+	height: 25px;
+	text-align: center;
+	width: 40px;
+	position: absolute;
+	z-index: 2;
+	left: 0px;
+}
